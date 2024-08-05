@@ -57,52 +57,11 @@ n_s = 9;     %平稳因子的个数
 Nt = 1598;      %测试样本个数
 time = 800;    %产生故障时间
 
-
-
-% %1.绘制测试数据图
-% figure('Name','test data');
-% subplot(5,1,1);
-% plot(1:Nt,TestData(:,1),'k');
-% hold on;
-% title('统计量变化图');
-% ylabel('x1');
-% 
-% subplot(5,1,2);
-% plot(1:Nt,TestData(:,2),'k');
-% hold on;
-% ylabel('x2');
-% 
-% subplot(5,1,3);
-% plot(1:Nt,TestData(:,3),'k');
-% hold on;
-% ylabel('x3');
-% 
-% subplot(5,1,4);
-% plot(1:Nt,TestData(:,4),'k');
-% hold on;
-% ylabel('x4');
-% 
-% subplot(5,1,5);
-% plot(1:Nt,TestData(:,5),'k');
-% hold on;
-% xlabel('采样数');
-% ylabel('x5');
-
-% 1.whitening
 [sample,dim] = size(new_matrix1);
-%白化
-% covx_average = TrainData'*TrainData;
-% Whitening = covx_average^(-1/2);
-% TrainData = (TrainData - mean(TrainData))*Whitening;     
-
-%归一化
+  
 x_mean = mean(new_matrix1);
 new_matrix1 = new_matrix1 - repmat(x_mean,sample,1);
 
-% %标准化
-% x_mean = mean(TrainData);
-% x_std = std(TrainData);        % 按列标准化
-% TrainData = (TrainData - repmat(x_mean,sample,1))./repmat(x_std,sample,1);
 
 %2.slice
 N = 50;
@@ -147,20 +106,6 @@ while theta >= 1e-4 && k < K
 end
 
 cov_frechet = cov_next;
-
-
-% %(whitening)
-% miu{i,1} = cov_average^(-1/2)*(miu{i,1}-miu_average);
-% covi{i,1} = cov_average^(-1/2)*covi{i,1}*cov_average^(-1/2);
-
-
-%4.求S
-%S = zeros(dim,dim);
-%for i = 1:N
- %   S = S + miu{i,1}*miu{i,1}'+ covi{i,1}  - 2*(covi{i,1}^(1/2)*cov_frechet*covi{i,1}^(1/2))^(1/2) ;
-%end
-%S = S./N + cov_frechet;
-
 P1 = zeros(dim,dim);
 P2 = zeros(dim,dim);
 P3 = zeros(dim,dim);
@@ -192,7 +137,7 @@ E_vector_sort = E_vector(:,index)
 Bs_w = E_vector_sort(:,1:n_s)';
 E_vector_sort_rev = fliplr(E_vector_sort);
 Bn_w = E_vector_sort_rev(:,1:n_ns)';
-%我加的
+%改进
 T1 = zeros(Nn+Nt,1);
 Bs_w_r = Bs_w;
 covx_average = cov(new_matrix1);
@@ -234,22 +179,6 @@ for i = time+1:Nt
     
 end
 FDR1 = error1/(Nt - time)*100;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 %7.求真实子空间和投影
 A = [0.2,-0.7;0.3,0.1;-0.7,0.4;0.1,-0.6;-0.5,0.5];
@@ -340,16 +269,7 @@ hold on;
 %hold on;
 xlabel('采样数');
 ylabel('x9');
-
-
-
-
-
-
-
-
 ylabel('s2');
-
 
 
 %9.绘制非平稳源数据图
@@ -401,10 +321,6 @@ hold on;
 %hold on;
 xlabel('采样数');
 ylabel('u6');
-
-
-
-
 
 
 %10.绘制训练数据图
