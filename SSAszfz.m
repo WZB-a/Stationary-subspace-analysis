@@ -35,7 +35,6 @@ end
 miu_average = sum_miu./N;
 cov_average_r = (sum_cov./N)^2;
 
-%我加的
 T1 = zeros(Nn+Nt,1);
 Bs_w_r = Ps;
 covx_average = cov(TrainData);
@@ -158,15 +157,6 @@ ylabel('x5');
 range = KDE_fcn(T1(1:Nn),0.99);
 CTR1 = range(2);
 
-
-
-
-
-
-
-
-
-%我加的
 T1 = zeros(Nn+Nt,1);
 
 covx_average = cov(TrainData);
