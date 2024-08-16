@@ -27,6 +27,27 @@ In this project, we compare the traditional SSA method, the improved WSSA method
 - **Input Signals**: Graphs illustrate the characteristics of the input signals.
 - **Output Signals**: Graphs compare the output signals of various methods.
 - **Monitoring Performance**: The DWSSA method significantly reduces false alarms while improving detection rates.
+  
+### Input Signals
+![Input Signals](images/1.png)
+
+### Output Signals
+![Output Signals](images/2.png)
+
+### Monitoring Performance Comparison
+
+#### SSA
+![SSA](images/3.png)
+
+#### ASSA
+![ASSA](images/4.png)
+
+#### WSSA
+![WSSA](images/5.png)
+
+#### DWSSA
+![DWSSA](images/6.png)
+
 
 ## License
 
