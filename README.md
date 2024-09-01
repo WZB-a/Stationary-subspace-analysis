@@ -10,7 +10,7 @@ Industrial processes often exhibit significant non-stationary characteristics du
 
 ## Main Work
 
-To address the shortcomings of traditional methods, we propose a new Dynamic Wasserstein Subspace Analysis (DWSSA) method. This method replaces the traditional Kullback-Leibler divergence with the Wasserstein distance, addressing the limitations of non-convex optimization. It also employs time-delay embedding techniques to augment the process data matrix, taking into account the relationships between data at different sampling times. Numerical simulation experiments demonstrate the effectiveness of the DWSSA method, showing that it outperforms traditional methods in monitoring performance, significantly improving anomaly detection accuracy.
+To address the shortcomings of traditional methods, we propose a new Dynamic Wasserstein Stationary Subspace Analysis (DWSSA) method. This method replaces the traditional Kullback-Leibler divergence with the Wasserstein distance, addressing the limitations of non-convex optimization. It also employs time-delay embedding techniques to augment the process data matrix, taking into account the relationships between data at different sampling times. Numerical simulation experiments demonstrate the effectiveness of the DWSSA method, showing that it outperforms traditional methods in monitoring performance, significantly improving anomaly detection accuracy.
 
 ## Code Explanation
 
